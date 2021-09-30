@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Jba.UI.ViewModels.PercipitationDataViewModel>
+
+@{
+    ViewData["Title"] = "Results";
+}
+
+<h1>Results</h1>
+
+<p>
+    <a asp-action="Index">Import another file</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.XRef)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YRef)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Value)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.XRef)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YRef)
+            </td>
+            <td>
+                @item.Date.ToShortDateString()
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
